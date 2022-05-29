@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,53 @@
     <script src="script.js"></script>
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
-    <script>
-        game();
-    </script>
-    
+    <h1 class="title">ROCK PAPER SCISSORS</h1>
+
+    <div class="scoreboard">
+        <h2 class="weapon">
+            Choose your weapon!
+        </h2>
+        <h3 class="scoreMessage">
+            First to score 5 Points wins the game
+        </h3>
+
+        <div class="scoresContainer">
+            <div class="scoreBox">
+                <div class="player">🤴</div>
+                <p class="playerScore">
+                    Player: 0
+                </p>
+            </div>
+
+            <div class="scoreBox">
+                <div class="computer">🤖</div>
+                <p class="computerScore">
+                    Computer: 0
+                </p>
+            </div>
+        </div>
+    </div>
+
+        <div class="buttons">
+            <button id="rock" class="rps">
+                🪨
+            </button>
+            <button id="paper" class="rps">
+                📃
+            </button>
+            <button id="scissors" class="rps">
+                ✂️
+            </button>
+        </div>
+
+        <div class="footer">
+            <p>
+                Copyright &copy 2022 varun-2001 
+            </p>
+        </div>
+
 </body>
+
 </html>
