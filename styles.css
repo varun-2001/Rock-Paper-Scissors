@@ -1,0 +1,98 @@
+p, h1, h2,h3{
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #222831;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+/* HEADER DONE */
+.title{
+    font-size: 32px;
+    font-family: 'Press Start 2P', cursive;
+    color: #fac650;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0px;
+    background-color: #111720;
+}
+
+/* SCOREBOARD */
+.scoreboard{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.weapon{
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.scoreMessage{
+    font-size: 20px;
+}
+
+.scoresContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 400px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.scoreBox{
+    width: 170px;
+
+}
+
+.sign{
+    font-size: 80px;
+    margin-bottom: 10px;
+
+}
+.score{
+    font-size: 22px;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 40px
+}
+
+button:hover{
+    background-color:#4a4f57 ;
+}
+.options{
+    font-size: 100px; 
+    background-color: #393e46 ;
+    border-radius: 15px;
+    padding: 10px;
+}
+button{
+    cursor: pointer;
+    border: none;
+}
+
+
+
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    font-size: 15px;       
+}
+#Copyright{
+    color:#ddd
+}

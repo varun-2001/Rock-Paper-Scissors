@@ -7,10 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
+    </style>
 </head>
 
 <body>
-    <h1 class="title">ROCK PAPER SCISSORS</h1>
+    <div class="header">
+        <h1 class="title">ROCK PAPER SCISSORS</h1>
+    </div>
 
     <div class="scoreboard">
         <h2 class="weapon">
@@ -22,38 +28,38 @@
 
         <div class="scoresContainer">
             <div class="scoreBox">
-                <div class="player">🤴</div>
-                <p class="playerScore">
+                <div class="sign" id="playerSign">🤴</div>
+                <p class="score" id="playerScore">
                     Player: 0
                 </p>
             </div>
 
             <div class="scoreBox">
-                <div class="computer">🤖</div>
-                <p class="computerScore">
+                <div class="sign" id="computerSign">🤖</div>
+                <p class="score" id="computerScore">
                     Computer: 0
                 </p>
             </div>
         </div>
     </div>
 
-        <div class="buttons">
-            <button id="rock" class="rps">
-                🪨
-            </button>
-            <button id="paper" class="rps">
-                📃
-            </button>
-            <button id="scissors" class="rps">
-                ✂️
-            </button>
-        </div>
+    <div class="buttons">
+        <button class="options" id="rock">
+            🪨
+        </button>
+        <button class="options" id="paper">
+            📃
+        </button>
+        <button class="options" id="scissors">
+            ✂️
+        </button>
+    </div>
 
-        <div class="footer">
-            <p>
-                Copyright &copy 2022 varun-2001 
-            </p>
-        </div>
+    <div class="footer">
+        <p id="Copyright">
+            Copyright &copy 2022 varun-2001
+        </p>
+    </div>
 
 </body>
 
