@@ -12,6 +12,7 @@ body{
 .title{
     font-size: 32px;
     font-family: 'Press Start 2P', cursive;
+    letter-spacing: 3px;
     color: #fac650;
 }
 .header{
