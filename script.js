@@ -1,77 +1,140 @@
+// GAME LOGIC
+let computerScore=0;
+let playerScore=0;
 
+function gameOver(){
+    return computerScore==5 || playerScore ==5;
+}
+
+
+// ELEMENTS
+const winOrLose = document.getElementById("winOrLose");
+const beatsElement = document.getElementById("beatsElement");
+const playerSign = document.getElementById("playerSign");
+const computerSign=document.getElementById("computerSign");
+const playerScoreText=document.getElementById("playerScore");
+const computerScoreText=document.getElementById("computerScore");
+const rockChoice=document.getElementById("rock");
+const paperChoice=document.getElementById("paper");
+const scissorsChoice=document.getElementById("scissors");
+
+rockChoice.addEventListener('click', ()=> handleClick("Rock"));
+paperChoice.addEventListener('click', ()=> handleClick("Paper"));
+scissorsChoice.addEventListener('click', ()=> handleClick("Scissors"));
+
+function handleClick(playerSelection) {
+    if (computerScore == 5 || playerScore == 5){
+        if(confirm("Game Over! \nRestart Game?"));{
+            restartGame();
+        }
+        return;
+    }
+    let computerSelection=computerPlay();
+    changeSign(playerSelection, computerSelection);
+    let result = playRound(playerSelection,computerSelection);
+
+    playerScoreText.textContent=`Player: ${playerScore}`;
+    computerScoreText.textContent=`Computer:${computerScore}`;
+    
+    
+}
+
+// FUNCTION THAT LETS USER SEE THE SIGNS USED BY COMPUTER AND USER
+function changeSign(playerSelection, computerSelection){
+    switch (playerSelection){
+        case "Rock":
+            playerSign.textContent="🪨";
+            break;
+        case "Paper":
+            playerSign.textContent="📃";
+            break;
+        case "Scissors":
+            playerSign.textContent="✂️";
+            break;
+    }
+
+    switch (computerSelection){
+        case "Rock":
+            computerSign.textContent="🪨";
+            break;
+        case "Paper":
+            computerSign.textContent="📃";
+            break;
+        case "Scissors":
+            computerSign.textContent="✂️";
+            break;
+    }
+}
 
 // FUNCTION THAT RETURNS ROCK PAPER SCISSORS RANDOMLY
-
 function computerPlay() {
     let random = Math.floor(Math.random() * 3);
     if (random === 0) {
-        return "rock";
+        return "Rock";
     } else if (random === 1) {
-        return "paper";
+        return "Paper";
     } else {
-        return "scissors";
+        return "Scissors";
     }
 }
 
 // FUNCTION THAT RETURNS THE RESULT OF THE ROUND
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        return "It's a tie! Try again!";
+        winOrLose.textContent="It's a Tie!";
+        beatsElement.textContent=`${playerSelection} ties ${computerSelection}`
     }
 
     // ROCK-SCISSORS & ROCK-PAPER
-    else if (playerSelection == "rock") {
-        if (computerSelection == "scissors") {
-            return "You Win! Rock beats Scissors!";
+    else if (playerSelection == "Rock") {
+        if (computerSelection == "Scissors") {
+            playerScore++;
+            winOrLose.textContent="You Win!";
+            beatsElement.textContent="Rock beats Scissors!";
         }
         else {
-            return "You Lose! Paper beats Rock!";
-        }
+            computerScore++;
+            winOrLose.textContent="You Lose!";
+            beatsElement.textContent="Paper beats Rock!";        }
     }
 
     // SCISSORS-ROCK & SCISSORS-PAPER
-    else if (playerSelection == "scissors") {
-        if (computerSelection == "rock") {
-            return "You Lose! Rock beats Scissors!";
+    else if (playerSelection == "Scissors") {
+        if (computerSelection == "Rock") {
+            computerScore++;
+            winOrLose.textContent="You Lose!";
+            beatsElement.textContent="Rock beats Scissors!";
         }
         else {
-            return "You Win! Scissors beats Paper!";
+            playerScore++;
+            winOrLose.textContent="You Win!";
+            beatsElement.textContent="Scissors beats Paper!";
         }
     }
 
     // PAPER-ROCK & PAPER-SCISSORS
-    else if (playerSelection == "paper") {
-        if (computerSelection == "rock") {
-            return "You Win! Paper beats Rock!";
+    else if (playerSelection == "Paper") {
+        if (computerSelection == "Rock") {
+            playerScore++;
+            winOrLose.textContent="You Win!";
+            beatsElement.textContent="Paper beats Rock!";
         }
         else {
-            return "You Lose! Scissors beats Paper!";
+            computerScore++;
+            winOrLose.textContent="You Lose!";
+            beatsElement.textContent="Scissors beats Paper!";
         }
     }
 }
 
-// FUNCTION THAT PLAYS AND RETURNS THE RESULT OF THE GAME
-function game() {
-    let playerScore = 0;
-    let machineScore =0;
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Rock, Paper, or Scissors?");
-        let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        alert(result);
-        if (result == "You Win! Rock beats Scissors!" || result == "You Win! Scissors beats Paper!" || result == "You Win! Paper beats Rock!") {
-            playerScore++;
-        }
-        else
-            machineScore++;
-    }
-    if (playerScore > machineScore) {
-        alert("You win the game!");
-    }
-    else if (playerScore < machineScore) {
-        alert("You lose the game!");
-    }
-    else {
-        alert("It's a tie!");
-    }
+// RESTART GAME
+function restartGame(){
+    playerScore=0;
+    computerScore=0;
+    playerScoreText.textContent=`Player: ${playerScore}`;
+    computerScoreText.textContent=`Computer:${computerScore}`
+    playerSign.textContent="🤴";
+    computerSign.textContent="🤖";
+    winOrLose.textContent="Choose your weapon!";
+    beatsElement.textContent="First to score 5 Points wins the game";
 }
